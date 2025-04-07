@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Style1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="DEVELOP-BY-MASTER-T">
+    <div class="background-animation"></div>
+    <div class="container" id="container">
+        <div class="form signin">
+            <div class="form-section">
+                <h2>Welcome Back</h2>
+                <form action="#">
+                    <div class="input-group">
+                        <input type="text" required>
+                        <label>Username</label>
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required>
+                        <label>Password</label>
+                        <i class="fas fa-lock icon"></i>
+                    </div>
+                    <button class="btn" type="submit">Sign In</button>
+                    <div class="switch-form">
+                        New here? <a onclick="toggleForm()">Create Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="form signup">
+            <div class="form-section">
+                <h2>Get Started</h2>
+                <form action="#">
+                    <div class="input-group">
+                        <input type="text" required>
+                        <label>Username</label>
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" required>
+                        <label>Email</label>
+                        <i class="fas fa-envelope icon"></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required>
+                        <label>Password</label>
+                        <i class="fas fa-lock icon"></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required>
+                        <label>Confirm Password</label>
+                        <i class="fas fa-lock icon"></i>
+                    </div>
+                    <button class="btn" type="submit">Sign Up</button>
+                    <div class="switch-form">
+                        Have an account? <a onclick="toggleForm()">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const container = document.getElementById('container');
+            container.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('.icon').style.color = '#ff6b6b';
+                input.parentElement.style.setProperty('--before-opacity', '1');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('.icon').style.color = '#888';
+                input.parentElement.style.setProperty('--before-opacity', '0');
+            });
+        });
+    </script>
+</body>
+</html>

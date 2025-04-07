@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Style4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="light-effect" id="lightEffect"></div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="page-container" id="pageContainer">
+    <div class="bg-element circle circle-1"></div>
+    <div class="bg-element circle circle-2"></div>
+    <div class="bg-element circle circle-3"></div>
+    <div class="bg-element circle circle-4"></div>
+    <div class="page login-page">
+        <div class="form-container" id="loginForm">
+        <h2>Sign In</h2>
+        <form id="signinFormElement">
+            <div class="input-group" data-required="true">
+            <input type="email" placeholder="Email" id="signinEmail">
+            <div class="error-message">Please enter a valid email address</div>
+            </div>
+            <div class="input-group" data-required="true">
+            <input type="password" placeholder="Password" id="signinPassword">
+            <div class="error-message">Password is required</div>
+            </div>
+            <div class="btn-container" id="signinBtnContainer">
+            <button type="submit" class="btn" id="signinButton">Sign In</button>
+            </div>
+        </form>
+        <div class="social-login">
+            <button class="social-btn">
+            <img src="https://img.icons8.com/color/512/google-logo.png" alt="Google">
+            Google
+            </button>
+            <button class="social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/768px-2021_Facebook_icon.svg.png" alt="Facebook">
+            Facebook
+            </button>
+        </div>
+        <div class="toggle-container">
+            <p>Don't have an account? <span class="toggle-link" id="signUp">Sign Up</span></p>
+        </div>
+        </div>
+    </div>
+    <div class="page register-page">
+        <div class="form-container" id="registerForm">
+        <h2>Create Account</h2>
+        <form id="signupFormElement">
+            <div class="input-group" data-required="true">
+                <input type="text" placeholder="Full Name" id="signupName">
+                <div class="error-message">Please enter your full name</div>
+            </div>
+            <div class="input-group" data-required="true">
+                <input type="email" placeholder="Email" id="signupEmail">
+                <div class="error-message">Please enter a valid email address</div>
+            </div>
+                <div class="input-group" data-required="true">
+                <input type="password" placeholder="Password" id="signupPassword">
+            <div class="error-message">Password must be at least 6 characters</div>
+            </div>
+            <div class="input-group" data-required="true">
+                <input type="password" placeholder="Confirm Password" id="signupConfirmPassword">
+                <div class="error-message">Passwords do not match</div>
+            </div>
+            <div class="btn-container" id="signupBtnContainer">
+                <button type="submit" class="btn" id="signupButton">Sign Up</button>
+            </div>
+        </form>
+        <div class="toggle-container">
+            <p>Already have an account? <span class="toggle-link" id="signIn">Sign In</span></p>
+        </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

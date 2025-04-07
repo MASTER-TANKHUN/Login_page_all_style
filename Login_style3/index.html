@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Style3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+    <div class="flip-container" id="flipper">
+        <div class="form-box front" id="loginForm">
+        <h2>Login</h2>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" />
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" />
+        </div>
+        <button><i class="fas fa-sign-in-alt"></i> Login</button>
+        <div class="switch-btn" onclick="flip()">Don't have an account? Register</div>
+        </div>
+        <div class="form-box back" id="registerForm">
+        <h2>Register</h2>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" />
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" />
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" />
+        </div>
+        <button><i class="fas fa-user-plus"></i> Register</button>
+        <div class="switch-btn" onclick="flip()">Already have an account? Login</div>
+        </div>
+    </div>
+    </div>
+    <script>
+    let isLogin = true;
+
+    function flip() {
+        const flipper = document.getElementById('flipper');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+
+        flipper.classList.add('spinning');
+
+        setTimeout(() => {
+        if (isLogin) {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            isLogin = false;
+        } else {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            isLogin = true;
+        }
+        }, 80);
+
+        flipper.addEventListener('animationend', () => {
+        flipper.classList.remove('spinning');
+        }, { once: true });
+    }
+    </script>
+
+</body>
+</html>
