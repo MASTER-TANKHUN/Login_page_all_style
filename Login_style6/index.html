@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login style6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="Developer Master T">
+    <div class="background-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    </div>
+
+    <div class="container">
+    <div class="toggle-container">
+        <div class="toggle">
+        <button class="toggle-btn active" id="login-toggle">Login</button>
+        <button class="toggle-btn" id="register-toggle">Register</button>
+        <div class="toggle-slider"></div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="login-container">
+        <h2>Welcome Back</h2>
+        <form id="login-form">
+            <div class="form-group">
+            <input type="email" required>
+            <span class="bar"></span>
+            <label>Email</label>
+            </div>
+            <div class="form-group">
+            <input type="password" required>
+            <span class="bar"></span>
+            <label>Password</label>
+            </div>
+            <button type="submit" class="submit-btn">LOGIN</button>
+        </form>
+        <div class="forgot-password">Forgot password?</div>
+        <div class="social-login">
+            <p>Or login with</p>
+            <div class="social-icons">
+            <div class="social-icon fb">f</div>
+            <div class="social-icon google">G</div>
+            <div class="social-icon twitter">t</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="register-container">
+        <h2>Create Account</h2>
+        <form id="register-form">
+            <div class="form-group">
+            <input type="text" required>
+            <span class="bar"></span>
+            <label>Full Name</label>
+            </div>
+            <div class="form-group">
+            <input type="email" required>
+            <span class="bar"></span>
+            <label>Email</label>
+            </div>
+            <div class="form-group">
+            <input type="password" required>
+            <span class="bar"></span>
+            <label>Password</label>
+            </div>
+            <div class="form-group">
+            <input type="password" required>
+            <span class="bar"></span>
+            <label>Confirm Password</label>
+            </div>
+            <button type="submit" class="submit-btn">SIGN UP</button>
+        </form>
+        <div class="social-login">
+            <p>Or register with</p>
+            <div class="social-icons">
+            <div class="social-icon fb">f</div>
+            <div class="social-icon google">G</div>
+            <div class="social-icon twitter">t</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="success-message">
+        <div class="success-icon"></div>
+        <h3>Success!</h3>
+        <p>Your account has been successfully created. You can now login to access your account.</p>
+        <button class="back-to-form">Back to Login</button>
+    </div>
+    </div>
+
+    <script>
+    const container = document.querySelector('.container');
+    const loginToggle = document.getElementById('login-toggle');
+    const registerToggle = document.getElementById('register-toggle');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const successMessage = document.querySelector('.success-message');
+    const backToFormBtn = document.querySelector('.back-to-form');
+
+    registerToggle.addEventListener('click', () => {
+        container.classList.add('register-active');
+        registerToggle.classList.add('active');
+        loginToggle.classList.remove('active');
+    });
+
+    loginToggle.addEventListener('click', () => {
+        container.classList.remove('register-active');
+        loginToggle.classList.add('active');
+        registerToggle.classList.remove('active');
+    });
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputs = loginForm.querySelectorAll('input');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            shakeElement(input);
+        }
+        });
+        
+        if (isValid) {
+        animateButton(loginForm.querySelector('.submit-btn'));
+        setTimeout(() => {
+            successMessage.classList.add('active');
+            successMessage.querySelector('h3').textContent = 'Welcome Back!';
+            successMessage.querySelector('p').textContent = 'You have successfully logged in to your account.';
+        }, 1000);
+        }
+    });
+
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputs = registerForm.querySelectorAll('input');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            shakeElement(input);
+        }
+        });
+
+        const passwords = registerForm.querySelectorAll('input[type="password"]');
+        if (passwords[0].value !== passwords[1].value) {
+        isValid = false;
+        shakeElement(passwords[0]);
+        shakeElement(passwords[1]);
+        }
+        
+        if (isValid) {
+        animateButton(registerForm.querySelector('.submit-btn'));
+        setTimeout(() => {
+            successMessage.classList.add('active');
+        }, 1000);
+        }
+    });
+
+    backToFormBtn.addEventListener('click', () => {
+        successMessage.classList.remove('active');
+        container.classList.remove('register-active');
+        loginToggle.classList.add('active');
+        registerToggle.classList.remove('active');
+        document.querySelectorAll('form').forEach(form => form.reset());
+    });
+
+    function shakeElement(element) {
+        element.classList.add('shake');
+        setTimeout(() => {
+        element.classList.remove('shake');
+        }, 500);
+    }
+
+    function animateButton(button) {
+        button.innerHTML = '<div class="loader"></div>';
+        button.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+        button.innerHTML = button.textContent;
+        button.style.pointerEvents = 'auto';
+        }, 1500);
+    }
+
+    document.head.insertAdjacentHTML('beforeend', `
+        <style>
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        </style>
+    `);
+
+    document.querySelectorAll('.social-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+        icon.style.transform = 'translateY(-5px)';
+        });
+        icon.addEventListener('mouseleave', () => {
+        icon.style.transform = 'translateY(0)';
+        });
+    });
+
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+        
+        const x = e.clientX - this.getBoundingClientRect().left;
+        const y = e.clientY - this.getBoundingClientRect().top;
+        
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+        });
+    });
+
+    document.head.insertAdjacentHTML('beforeend', `
+        <style>
+        button {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+            transform: scale(4);
+            opacity: 0;
+            }
+        }
+        </style>
+    `);
+    </script>
+</body>
+</html>
