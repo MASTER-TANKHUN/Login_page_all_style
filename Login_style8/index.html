@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Style 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container register-container">
+            <form class="form" id="registerForm">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" title="Facebook">📘</a> 
+                    <a href="#" title="Google">🔍</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                </div>
+                <span style="font-size: 14px; color: #666; margin-bottom: 20px;">or use your email for registration</span>
+                <div class="input-group">
+                    <input type="text" id="regName" required>
+                    <label for="regName">Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="regEmail" required>
+                    <label for="regEmail">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="regPassword" required>
+                    <label for="regPassword">Password</label>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container login-container">
+            <form class="form" id="loginForm">
+                <h1>Sign In</h1>
+                <div class="social-container">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Google">🔍</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                </div>
+                <span style="font-size: 14px; color: #666; margin-bottom: 20px;">or use your account</span>
+                <div class="input-group">
+                    <input type="email" id="loginEmail" required>
+                    <label for="loginEmail">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="loginPassword" required>
+                    <label for="loginPassword">Password</label>
+                </div>
+                <a href="#" style="color: #666; font-size: 14px; text-decoration: none; margin: 15px 0;">Forgot your password?</a>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="btn-ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="btn-ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

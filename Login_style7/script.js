@@ -296,7 +296,7 @@ function checkPasswordStrength(password) {
     }
 }
   
-  document.querySelectorAll('.input-field').forEach(input => {
+document.querySelectorAll('.input-field').forEach(input => {
     input.addEventListener('focus', () => {
         input.parentElement.parentElement.classList.add('focused');
     });
@@ -307,7 +307,7 @@ function checkPasswordStrength(password) {
     });
 });
   
-  window.onload = function() {
+window.onload = function() {
     document.getElementById('login-email').addEventListener('input', () => clearError('login-email'));
     document.getElementById('login-password').addEventListener('input', () => clearError('login-password'));
     document.getElementById('register-name').addEventListener('input', () => clearError('register-name'));
